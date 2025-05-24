@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ishihara Color Blind Test</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Ishihara Color Blind Test</h1>
+
+    <div id="nameSection">
+      <input type="text" id="userName" placeholder="Enter your name" />
+      <button onclick="startTest()">Start Test</button>
+    </div>
+
+    <div id="testSection" style="display:none;">
+      <p id="greeting"></p>
+      <img id="plateImage" src="" alt="Ishihara Plate" />
+      <input type="text" id="answerInput" placeholder="What number do you see?" />
+      <button onclick="submitAnswer()">Submit</button>
+      <p id="plateCount"></p>
+    </div>
+
+    <div id="resultSection" style="display:none;">
+      <h2>Test Result</h2>
+      <p id="finalResult"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
