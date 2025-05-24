@@ -44,18 +44,20 @@ function showPlate() {
 
 function submitAnswer() {
   const userAnswer = document.getElementById("answerInput").value.trim();
-if (userAnswer === plates[current].answer) {
-  correct++;
-  response[current] = "Benar";
-} else {
-  response[current] = "Salah";  
+  if (userAnswer === plates[current].answer) {
+    correct++;
+    responses[current] = "Benar";
+  } else {
+    responses[current] = "Salah";
+  }
+  current++;
+  if (current < plates.length) {
+    showPlate();
+  } else {
+    showResult();
+  }
 }
-current++;
-if (current < plates.length) {
-  showPlate();
-} else {
-  showResult();
-}
+
 }
 
 function showResult() {
