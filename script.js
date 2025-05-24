@@ -61,7 +61,7 @@ function showResult() {
   document.getElementById("result-screen").style.display = "block";
 
   const score = responses.filter(r => r[3] === "Benar").length;
-  const prediction = score >= 15 ? "Normal" : score >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
+  const prediction = correct >= 15 ? "Normal" : correct >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
   document.getElementById("score-text").textContent = `Skor: ${score}/${plates.length}, Prediksi: ${prediction}`;
 
   // Kirim ke Google Apps Script (ganti URL)
