@@ -7,15 +7,15 @@ const plates = [
   { image: "plates/plate6.jpg", answer: "5" },
   { image: "plates/plate7.jpg", answer: "3" },
   { image: "plates/plate8.jpg", answer: "15" },
-  { image: "plates/plate9.jpg", answer: "74" },
-  { image: "plates/plate10.jpg", answer: "2" },
-  { image: "plates/plate11.jpg", answer: "6" },
-  { image: "plates/plate12.jpg", answer: "45" },
-  { image: "plates/plate13.jpg", answer: "5" },
-  { image: "plates/plate14.jpg", answer: "7" },
-  { image: "plates/plate15.jpg", answer: "16" },
-  { image: "plates/plate16.jpg", answer: "73" },
-  { image: "plates/plate17.jpg", answer: "42" }
+  { image: "plates/plate9.jpg", answer: "6" },
+  { image: "plates/plate10.jpg", answer: "74" },
+  { image: "plates/plate11.jpg", answer: "2" },
+  { image: "plates/plate12.jpg", answer: "97" },
+  { image: "plates/plate13.jpg", answer: "45" },
+  { image: "plates/plate14.jpg", answer: "5" },
+  { image: "plates/plate15.jpg", answer: "7" },
+  { image: "plates/plate16.jpg", answer: "16" },
+  { image: "plates/plate17.jpg", answer: "73" }
 ];
 
 let current = 0;
