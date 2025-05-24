@@ -46,8 +46,11 @@ function submitAnswer() {
   const userAnswer = document.getElementById("answerInput").value.trim();
   if (userAnswer === plates[current].answer) {
     correct++;
+    response[current] = "Benar";
+  }else{
+    response[current] = "Salah";
+    
   }
-
   current++;
   if (current < plates.length) {
     showPlate();
@@ -81,7 +84,7 @@ function showResult() {
 async function downloadPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  const score = responses.filter(r => r[3] === "Benar").length;
+  const score = correct;
   const prediction = correct >= 15 ? "Normal" : correct >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
 
   doc.text("Hasil Tes Buta Warna", 20, 20);
