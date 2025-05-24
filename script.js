@@ -48,8 +48,7 @@ function submitAnswer() {
     correct++;
     response[current] = "Benar";
   }else{
-    response[current] = "Salah";
-    
+    response[current] = "Salah";  
   }
   current++;
   if (current < plates.length) {
