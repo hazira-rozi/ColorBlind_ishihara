@@ -65,7 +65,7 @@ function showResult() {
   document.getElementById("score-text").textContent = `Skor: ${score}/${plates.length}, Prediksi: ${prediction}`;
 
   // Kirim ke Google Apps Script (ganti URL)
-  fetch("https://script.google.com/macros/s/AKfycbwz42TAg8XPd7NkQQW3J8oqtOhCXgni66j0w3SLNrlqiGm9cusPz-zZIwojToYsw7GP/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwOdLWyYZ10iBP6vOE2rVPohn6AaNmw0B2kBcxe7ppFL33gItq--Q-8qwrp3sLDsvBV/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
