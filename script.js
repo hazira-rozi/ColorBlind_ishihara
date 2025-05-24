@@ -89,7 +89,7 @@ async function downloadPDF() {
   const prediction = correct >= 15 ? "Normal" : correct >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
 
   doc.text("Hasil Tes Buta Warna", 20, 20);
-  doc.text(`Nama: ${username}`, 20, 30);
+  doc.text(`Nama: ${userName}`, 20, 30);
   doc.text(`Skor: ${correct}/${plates.length}`, 20, 40);
   doc.text(`Prediksi: ${prediction}`, 20, 50);
   doc.save("transkrip_" + userName + ".pdf");
