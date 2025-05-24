@@ -58,7 +58,7 @@ function submitAnswer() {
 
 function showResult() {
   document.getElementById("testSection").style.display = "none";
-  document.getElementById("resultSection").style.display = "block";
+  document.getElementById("result-screen").style.display = "block";
 
   const score = responses.filter(r => r[3] === "Benar").length;
   const prediction = score >= 15 ? "Normal" : score >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
