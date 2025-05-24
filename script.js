@@ -19,6 +19,7 @@ const plates = [
 ];
 
 let current = 0;
+let responses = [];
 let correct = 0;
 let userName = "";
 
@@ -59,15 +60,33 @@ function showResult() {
   document.getElementById("testSection").style.display = "none";
   document.getElementById("resultSection").style.display = "block";
 
-  let diagnosis;
-  if (correct >= 15) {
-    diagnosis = "Normal color vision.";
-  } else if (correct >= 10) {
-    diagnosis = "Possible mild color vision deficiency.";
-  } else {
-    diagnosis = "Possible color blindness (red-green deficiency).";
-  }
+  const score = responses.filter(r => r[3] === "Benar").length;
+  const prediction = score >= 15 ? "Normal" : score >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
+  document.getElementById("score-text").textContent = `Skor: ${score}/${plates.length}, Prediksi: ${prediction}`;
 
-  document.getElementById("finalResult").textContent = 
-    `${userName}, you got ${correct} out of ${plates.length} correct. ${diagnosis}`;
+  // Kirim ke Google Apps Script (ganti URL)
+  fetch("https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: userName,
+      score: score,
+      total: plates.length,
+      prediction: prediction,
+      answers: responses
+    })
+  });
+}
+
+async function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  const score = responses.filter(r => r[3] === "Benar").length;
+  const prediction = score >= 15 ? "Normal" : score >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
+
+  doc.text("Hasil Tes Buta Warna", 20, 20);
+  doc.text(`Nama: ${username}`, 20, 30);
+  doc.text(`Skor: ${score}/${plates.length}`, 20, 40);
+  doc.text(`Prediksi: ${prediction}`, 20, 50);
+  doc.save("transkrip_" + username + ".pdf");
 }
