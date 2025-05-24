@@ -62,7 +62,7 @@ function showResult() {
 
   const score = responses.filter(r => r[3] === "Benar").length;
   const prediction = correct >= 15 ? "Normal" : correct >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
-  document.getElementById("score-text").textContent = `Skor: ${score}/${plates.length}, Prediksi: ${prediction}`;
+  document.getElementById("score-text").textContent = `Skor: ${correct}/${plates.length}, Prediksi: ${prediction}`;
 
   // Kirim ke Google Apps Script (ganti URL)
   fetch("https://script.google.com/macros/s/AKfycbwOdLWyYZ10iBP6vOE2rVPohn6AaNmw0B2kBcxe7ppFL33gItq--Q-8qwrp3sLDsvBV/exec", {
