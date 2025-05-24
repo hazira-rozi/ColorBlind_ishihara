@@ -85,13 +85,48 @@ function showResult() {
 async function downloadPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  const prediction = correct >= 15 ? "Normal" :
-                     correct >= 10 ? "Anomali Ringan" :
-                     "Kemungkinan Buta Warna";
 
-  doc.text("Hasil Tes Buta Warna", 20, 20);
-  doc.text(`Nama: ${userName}`, 20, 30);
-  doc.text(`Skor: ${correct}/${plates.length}`, 20, 40);
-  doc.text(`Prediksi: ${prediction}`, 20, 50);
-  doc.save("transkrip_" + userName + ".pdf");
+  const marginLeft = 20;
+  const lineHeight = 10;
+
+  const score = correct;
+  const prediction = score >= 15 ? "Normal" : score >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
+
+  doc.setFontSize(16);
+  doc.setTextColor(40, 40, 150);
+  doc.text("Transkrip Hasil Tes Buta Warna", marginLeft, 20);
+
+  doc.setFontSize(12);
+  doc.setTextColor(0, 0, 0);
+  doc.text(`Nama Peserta : ${userName}`, marginLeft, 35);
+  doc.text(`Total Soal   : ${plates.length}`, marginLeft, 45);
+  doc.text(`Jawaban Benar: ${score}`, marginLeft, 55);
+  doc.text(`Prediksi     : ${prediction}`, marginLeft, 65);
+
+  // Garis pemisah
+  doc.setDrawColor(100);
+  doc.line(marginLeft, 70, 190, 70);
+
+  // Tabel jawaban
+  let y = 80;
+  doc.setFontSize(11);
+  doc.setTextColor(80, 80, 80);
+  doc.text("Rincian Jawaban:", marginLeft, y);
+
+  y += 10;
+  plates.forEach((plate, index) => {
+    const plateNo = index + 1;
+    const status = responses[index];
+    const text = `Plate ${plateNo}: ${status}`;
+    doc.text(text, marginLeft, y);
+    y += 8;
+
+    // Jika halaman penuh, buat halaman baru
+    if (y > 280) {
+      doc.addPage();
+      y = 20;
+    }
+  });
+
+  doc.save(`Transkrip_ButaWarna_${userName}.pdf`);
 }
