@@ -70,7 +70,7 @@ function showResult() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       name: userName,
-      score: score,
+      score: correct,
       total: plates.length,
       prediction: prediction,
       answers: responses
@@ -82,11 +82,11 @@ async function downloadPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
   const score = responses.filter(r => r[3] === "Benar").length;
-  const prediction = score >= 15 ? "Normal" : score >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
+  const prediction = correct >= 15 ? "Normal" : correct >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
 
   doc.text("Hasil Tes Buta Warna", 20, 20);
   doc.text(`Nama: ${username}`, 20, 30);
-  doc.text(`Skor: ${score}/${plates.length}`, 20, 40);
+  doc.text(`Skor: ${correct}/${plates.length}`, 20, 40);
   doc.text(`Prediksi: ${prediction}`, 20, 50);
-  doc.save("transkrip_" + username + ".pdf");
+  doc.save("transkrip_" + userName + ".pdf");
 }
