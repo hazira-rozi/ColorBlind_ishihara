@@ -37,7 +37,7 @@ function startTest() {
 
 function showPlate() {
   document.getElementById("plateImage").src = plates[current].image;
-  document.getElementById("plateCount").textContent = `Plate ${current + 1} of ${plates.length} ${plates[current].answer}`;
+  document.getElementById("plateCount").textContent = `Plate ${current + 1} of ${plates.length}`;
   document.getElementById("answerInput").value = "";
 }
 
