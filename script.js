@@ -58,17 +58,17 @@ function submitAnswer() {
   }
 }
 
-}
-
 function showResult() {
   document.getElementById("testSection").style.display = "none";
   document.getElementById("result-screen").style.display = "block";
 
-  const score = responses.filter(r => r[3] === "Benar").length;
-  const prediction = correct >= 15 ? "Normal" : correct >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
+  const prediction = correct >= 15 ? "Normal" :
+                     correct >= 10 ? "Anomali Ringan" :
+                     "Kemungkinan Buta Warna";
+
   document.getElementById("score-text").textContent = `Skor: ${correct}/${plates.length}, Prediksi: ${prediction}`;
 
-  // Kirim ke Google Apps Script (ganti URL)
+  // Kirim ke Google Apps Script (ganti URL sesuai kebutuhan)
   fetch("https://script.google.com/macros/s/AKfycbwOdLWyYZ10iBP6vOE2rVPohn6AaNmw0B2kBcxe7ppFL33gItq--Q-8qwrp3sLDsvBV/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -85,8 +85,9 @@ function showResult() {
 async function downloadPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  const score = correct;
-  const prediction = correct >= 15 ? "Normal" : correct >= 10 ? "Anomali Ringan" : "Kemungkinan Buta Warna";
+  const prediction = correct >= 15 ? "Normal" :
+                     correct >= 10 ? "Anomali Ringan" :
+                     "Kemungkinan Buta Warna";
 
   doc.text("Hasil Tes Buta Warna", 20, 20);
   doc.text(`Nama: ${userName}`, 20, 30);
