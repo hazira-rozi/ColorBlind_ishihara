@@ -11,12 +11,13 @@ body {
 
 .container {
   background: #fff;
-  padding: 20px;
+  padding: 20px 30px;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   text-align: center;
   max-width: 90%;
-  width: 400px;
+  /* Increased from 400px to give the side-by-side layout more breathing room */
+  width: 550px; 
 }
 
 input {
@@ -25,6 +26,8 @@ input {
   width: 100%;
   box-sizing: border-box;
   font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
 button {
@@ -33,6 +36,14 @@ button {
   margin: 10px 0;
   width: 100%;
   font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
 
 img {
@@ -40,4 +51,47 @@ img {
   height: auto;
   margin: 20px 0;
   border-radius: 8px;
+}
+
+/* =========================================
+   NEW FLEXBOX LAYOUT FOR HEADER 
+   ========================================= */
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  /* Aligning text left looks cleaner when next to an image */
+  text-align: left; 
+}
+
+.header-text {
+  flex: 1;
+}
+
+.header-text h1 {
+  font-size: 24px;
+  margin: 0 0 5px 0;
+}
+
+.header-text h3 {
+  font-size: 18px;
+  margin: 0 0 15px 0;
+  color: #555;
+}
+
+.header-text h6 {
+  margin: 10px 0 0 0;
+  color: #888;
+}
+
+.header-image {
+  flex-shrink: 0;
+}
+
+.fixed-height-img {
+  height: 130px; 
+  width: auto;
+  margin: 0; /* Overrides the 20px margin from the global img tag */
 }
