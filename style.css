@@ -1,3 +1,4 @@
+/* Pengaturan Global */
 body {
   font-family: sans-serif;
   background-color: #eef2f3;
@@ -11,16 +12,15 @@ body {
 
 .container {
   background: #fff;
-  padding: 20px 30px;
+  padding: 30px;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  text-align: center;
   max-width: 90%;
-  /* Increased from 400px to give the side-by-side layout more breathing room */
-  width: 550px; 
+  width: 600px; /* Lebar yang cukup untuk layout bersebelahan */
 }
 
-input {
+/* Elemen Form */
+input[type="text"], input[type="number"] {
   padding: 10px;
   margin: 10px 0;
   width: 100%;
@@ -46,28 +46,20 @@ button:hover {
   background-color: #0056b3;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  margin: 20px 0;
-  border-radius: 8px;
-}
-
 /* =========================================
-   NEW FLEXBOX LAYOUT FOR HEADER 
+   LAYOUT FLEXBOX UNTUK HEADER
    ========================================= */
-
 .header-container {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  /* Aligning text left looks cleaner when next to an image */
-  text-align: left; 
+  gap: 30px;
 }
 
 .header-text {
   flex: 1;
+  text-align: left; /* Rata kiri lebih rapi untuk layout bersebelahan */
 }
 
 .header-text h1 {
@@ -76,22 +68,37 @@ img {
 }
 
 .header-text h3 {
-  font-size: 18px;
+  font-size: 16px;
   margin: 0 0 15px 0;
   color: #555;
 }
 
 .header-text h6 {
   margin: 10px 0 0 0;
+  font-size: 11px;
   color: #888;
+  font-weight: normal;
 }
 
 .header-image {
   flex-shrink: 0;
 }
 
-.fixed-height-img {
-  height: 130px; 
-  width: auto;
-  margin: 0; /* Overrides the 20px margin from the global img tag */
+.qr-img {
+  width: 160px; /* Mengunci ukuran QR Code agar tidak merusak layout */
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Penyesuaian Bagian Tes & Hasil */
+#testSection, #resultSection {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#testSection img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 8px;
 }
