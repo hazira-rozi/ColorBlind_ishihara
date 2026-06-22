@@ -153,27 +153,6 @@
     
   </div>
 
-  <script>
-    // Include whatever logic you had in your script.js here
-    // For example:
-    function startTest() {
-      const name = document.getElementById("userName").value;
-      if (name.trim() === "") {
-        alert("Silakan masukkan nama Anda.");
-        return;
-      }
-      
-      // Hide header, show test
-      document.querySelector(".header-container").style.display = "none";
-      document.getElementById("testSection").style.display = "block";
-      document.getElementById("greeting").innerText = "Halo, " + name + "!";
-      
-      // Start test logic here...
-    }
-
-    function submitAnswer() {
-      // Handle answers here...
-    }
-  </script>
+  <script src="script.js">
 </body>
 </html>
