@@ -7,16 +7,23 @@
 </head>
 <body>
   <div class="container">
-    <h1>Ishihara Color Blind Test 1.0</h1>
-    <h3>SPMB 2026/2027</h3>
-
-    <div id="nameSection">
-      <input type="text" id="userName" placeholder="Masukkan Nama anda" />
-      <button onclick="startTest()">Mulai Tes</button>
-    </div>
-    <h6>SMKN 1 Singkarak &copy; 2026</h6>
-    <img src="qrcode_365608204_bf5613cf69a30281dfc26e9d8a366a11.png" alt="Description" class="fixed-height-img">
     
+    <div class="header-container">
+      <div class="header-text">
+        <h1>Ishihara Color Blind Test 1.0</h1>
+        <h3>SPMB 2026/2027</h3>
+
+        <div id="nameSection">
+          <input type="text" id="userName" placeholder="Masukkan Nama anda" />
+          <button onclick="startTest()">Mulai Tes</button>
+        </div>
+        <h6>SMKN 1 Singkarak &copy; 2026</h6>
+      </div>
+
+      <div class="header-image">
+        <img src="qrcode_365608204_bf5613cf69a30281dfc26e9d8a366a11.png" alt="QR Code" class="fixed-height-img">
+      </div>
+    </div>
     <div id="testSection" style="display:none;">
       <p id="greeting"></p>
       <img id="plateImage" src="" alt="Ishihara Plate" />
@@ -30,6 +37,7 @@
       <h2>Hasil Test</h2>
       <p id="finalResult"></p>
     </div>
+    
   </div>
   <script src="script.js"></script>
 </body>
