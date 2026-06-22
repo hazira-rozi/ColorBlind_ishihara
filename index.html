@@ -2,13 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ishihara Color Blind Test</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Global Styles */
+    body {
+      font-family: sans-serif;
+      background-color: #eef2f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 90%;
+      width: 600px; /* Made slightly wider to comfortably fit both sides */
+    }
+
+    /* Form Elements */
+    input[type="text"], input[type="number"] {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px 20px;
+      cursor: pointer;
+      margin: 10px 0;
+      width: 100%;
+      font-size: 16px;
+      background-color: #f0f0f0; /* Matched to your screenshot */
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* =========================================
+       FLEXBOX LAYOUT FOR HEADER (SIDE-BY-SIDE)
+       ========================================= */
+    .header-container {
+      display: flex;
+      flex-direction: row; /* Forces side-by-side */
+      align-items: center; /* Vertically centers */
+      justify-content: space-between;
+      gap: 30px; /* Space between text and QR code */
+    }
+
+    /* Left Side: Text and form */
+    .header-text {
+      flex: 1;
+      text-align: center;
+    }
+
+    .header-text h1 {
+      font-size: 26px;
+      margin: 0 0 5px 0;
+    }
+
+    .header-text h3 {
+      font-size: 16px;
+      margin: 0 0 20px 0;
+    }
+
+    .header-text h6 {
+      margin: 15px 0 0 0;
+      font-size: 11px;
+      font-weight: normal;
+    }
+
+    /* Right Side: QR Code */
+    .header-image {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-image img {
+      width: 180px; /* Controls the exact size of the QR code */
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Test & Result Section Overrides */
+    #testSection, #resultSection {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #testSection img {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
+
   <div class="container">
     
     <div class="header-container">
+      
       <div class="header-text">
         <h1>Ishihara Color Blind Test 1.0</h1>
         <h3>SPMB 2026/2027</h3>
@@ -21,9 +132,11 @@
       </div>
 
       <div class="header-image">
-        <img src="qrcode_365608204_bf5613cf69a30281dfc26e9d8a366a11.png" alt="QR Code" class="fixed-height-img">
+        <img src="qrcode_365608204_bf5613cf69a30281dfc26e9d8a366a11.png" alt="Scan Me QR Code">
       </div>
+
     </div>
+    
     <div id="testSection" style="display:none;">
       <p id="greeting"></p>
       <img id="plateImage" src="" alt="Ishihara Plate" />
@@ -39,6 +152,28 @@
     </div>
     
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    // Include whatever logic you had in your script.js here
+    // For example:
+    function startTest() {
+      const name = document.getElementById("userName").value;
+      if (name.trim() === "") {
+        alert("Silakan masukkan nama Anda.");
+        return;
+      }
+      
+      // Hide header, show test
+      document.querySelector(".header-container").style.display = "none";
+      document.getElementById("testSection").style.display = "block";
+      document.getElementById("greeting").innerText = "Halo, " + name + "!";
+      
+      // Start test logic here...
+    }
+
+    function submitAnswer() {
+      // Handle answers here...
+    }
+  </script>
 </body>
 </html>
