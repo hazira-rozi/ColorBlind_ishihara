@@ -29,7 +29,8 @@ function startTest() {
     return;
   }
 
-  document.getElementById("nameSection").style.display = "none";
+  // Menyembunyikan seluruh header (teks + QR code)
+  document.querySelector(".header-container").style.display = "none";
   document.getElementById("testSection").style.display = "block";
   document.getElementById("greeting").textContent = `Hello, ${userName}!`;
   showPlate();
